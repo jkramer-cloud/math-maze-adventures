@@ -1,82 +1,84 @@
-# Math Maze Adventures — Classic Maze & Trailblazer Maze
+# Math Maze Adventures — Wildlands Edition
 
-A standalone, offline-friendly math adventure for the Naches Learning Hub. Two ways to explore, one game and one saved player profile system. Designed for school Chromebooks, desktop browsers, and touchscreens.
+**Three educational math games in one self-contained website** for the Naches Learning Hub. The app runs from `index.html` and stores progress locally in the browser. No logins, analytics, accounts, or external assets are required.
 
-## Play modes
+## Choose a game mode
 
-### Classic Maze — original game, improved readability
+A three-choice popup appears whenever the game opens.
 
-The original worksheet-style maze is preserved: solve the current room's math question, then choose the exit bearing the correct answer. Correct answers move you along the generated route. You can select any of three **visibility modes**:
+- **Classic Maze** — Follow the corridor with the answer to the current math problem. Version 3 uses compact numbered corridor markers instead of the old large answer circles that obscured nearby math expressions. Current-room problem and large answer choices remain visible. Standard, Focus, and High Contrast views are available.
+- **Trailblazer Maze** — Choose a permitted cardinal or diagonal direction first, then solve a newly generated question. Diagonals are harder, and an incorrect answer sends the explorer back one space unless a shield prevents it. Optional traps and rewards remain available.
+- **Wildlands Adventure** — Walk through a top-down world with WASD, arrow keys, the on-screen direction pad, or by clicking an adjacent tile. Tall terrain can spawn a Mathling challenge. Correct answers reduce its shields; incorrect answers cost a heart. At zero hearts the explorer returns to the Practice Lodge with one emergency heart, retaining earned XP and badges.
 
-- **Standard:** Complete maze visible, with inactive rooms dimmed and valid exits enlarged.
-- **Focus:** Zooms into the current room and nearby exits for easier reading.
-- **High Contrast:** Highlights the current room and exit choices while further reducing background distractions.
+Changing modes using **Change adventure** keeps unfinished sessions *separately by game mode and player profile*. Starting an entirely new game within a mode replaces that mode's active session. The existing legacy save key `naches_math_maze_v1` is retained.
 
-The large answer buttons and number-key shortcuts (1–4) are retained. Existing Classic records and locally stored matches remain compatible.
+## Wildlands gameplay
 
-### Trailblazer Maze — new direction-first gameplay
+1. Choose Wildlands from the opening popup, your grade (1–12), a starter explorer, its color, and an answer mode (multiple choice or typed). You may change a character's appearance later from the left settings panel.
+2. Explore a region. Grass and other distinct terrain may trigger a question encounter. Paths remain traversable; walls are impassable.
+3. A Mathling has two shields; solve two questions to defeat it and earn XP. Wrong answers cost hearts and record the affected math skill **and answer number range**.
+4. Use **Return to Practice Lodge**, or walk back to its house tile. Each correctly answered targeted practice question restores one heart. Missed practice provides a hint and a new question, with no additional heart loss. You may leave the lodge at any time.
+5. Travel to the boss gate at the far side of the map. Correctly answer at least six of eight questions to earn the regional badge. For a lower-pressure option, timing is disabled by default. Optional timed boss mode gives three minutes for a regional badge, four for the Grand Summit.
+6. Earn badges from all five regions to unlock the **Grand Summit** challenge: at least eight correct answers out of ten. Badges, XP, character selections, and final victories remain saved on your profile.
 
-1. Choose one of the **connected** corridors displayed on the board or in the movement panel.
-2. The game reveals a new math question **after** you choose the direction.
-3. Solve it by selecting one of four answers **or** typing your answer (configured before starting).
-4. A correct answer moves you into the next room; an incorrect answer sends you back **one previously visited room** and clears the question. From the starting room you stay put.
-5. Travel from **START** (bottom-right) to the goal at the top-left. Your progress is preserved automatically when browser storage is available.
+### The five regions
 
-Movement supports all **eight directions** when passages permit. A diagonal option is gold/dashed, takes a shorter route, and asks a slightly more advanced question when grade/skill allows. Diagonals only appear when there is an unblocked two-edge corner route; they never pass through a wall.
+| Region | Math emphasis | Unlock |
+|---|---|---|
+| Orchard Fields | Addition and subtraction | Start |
+| Whispering Forest | Multiplication and division | Orchard badge |
+| Crystal Caverns | Fractions, decimals, and integers | Forest badge |
+| River Crossing | Measurement, geometry, and percentages | Cavern badge |
+| Summit Ruins | Algebra, powers, and mixed reasoning | River badge |
 
-If you leave surprise rooms on, roughly 10% of interior rooms hide bonus cards and 10% hide traps (the actual count is rounded for maze size). Each surprise triggers **only once per maze**. Possible bonuses include score rewards and a shield to prevent one wrong-answer setback. Traps can deduct bonus points or send you back a room. Disable surprises during game setup to focus entirely on math.
+Problems adapt to the chosen grade. If a region's advanced math subjects are not appropriate for the selected grade, the encounter draws from supported introductory arithmetic skills instead.
 
-## Game settings
+### Explorer customization
 
-- **Adventure:** Classic Maze or Trailblazer Maze.
-- **Grade:** 1–12; skill selection updates to match the grade.
-- **Skills:** Addition, subtraction, multiplication, division, fractions, decimals, area/perimeter, percentages, integers, algebra, exponents and more, depending on grade.
-- **Maze:** 4×4, 5×5 or 6×6.
-- **Themes:** Bee Garden, Star Quest, Treasure Ruins.
-- **Difficulty pacing:** Practice (unlimited attempts), Challenge (three mistakes), Speed Run (timed, three mistakes).
-- **Trailblazer answers:** Four-choice multiple choice or typed answers, including fractions like `2/3`, decimals, and negative numbers.
-- **Surprise rooms:** On or off.
-- **Visibility:** Standard, Focus, High Contrast (can switch during play).
+- **Four starter appearances:** Scout, Ranger, Inventor, and Stargazer.
+- **Four color palettes:** Teal, Rust, Violet, and Gold.
+- **Four outfit sets:** Starter Gear (default), Orchard Explorer (35 XP), Forest Ranger (105 XP), and Cave Adventurer (205 XP).
+- **Three visible equipment stages:** starter, upgraded gear at 90 XP, and advanced gear at 240 XP.
+- Cosmetic options are earned through mathematical progress. They provide no competitive advantage.
 
-Typed answers recognize mathematically equivalent fractions such as `2/4` for `1/2`.
+Wildlands characters and maps are lightweight original SVG artwork embedded in `index.html`; encounter monster icons are simple thematic artwork rather than a collectible creature system. More sprite animation and additional outfits are potential future updates.
 
-## Saved progress
+## Game controls
 
-The game deliberately **retains the original localStorage key** `naches_math_maze_v1`. No account is needed. Existing Classic player nicknames, wins, achievements, and available saved matches are read using their original format. Both modes contribute to the existing achievement milestones, and best scores are recorded separately per adventure and difficulty. Browser storage is device-and-browser specific; students switching devices will not automatically share records. Private/incognito mode or clearing browser data can erase local progress.
+| Action | Control |
+|---|---|
+| Classic answer | Click corridor marker, use large answer button, or number keys 1–4 |
+| Trailblazer direction | Click adjacent arrow or direction button |
+| Wildlands movement | Arrow keys, WASD, touch D-pad, or click an adjacent tile |
+| Wildlands answers | Click one of four choices or type a number/fraction, depending on setup |
+| Practice / healing | Walk onto lodge tile or use Return to Practice Lodge |
+| Change modes | Change adventure in page header |
+| View hint | Show hint |
 
-**Important:** An unfinished match is stored in one session slot per active game/profile workflow. Starting a new maze replaces the previous unfinished maze. Do not clear site storage before checking saved progress.
+## GitHub Pages installation
 
-## Deploy to GitHub Pages
+Upload the **two files** in the GitHub ZIP to the root of the existing `math-maze-adventures` GitHub repository:
 
-**Use the same existing repository:** `math-maze-adventures`.
+```
+math-maze-adventures/
+  index.html
+  README.md
+```
 
-1. Download the **GitHub Ready** ZIP.
-2. Extract `index.html` and `README.md`.
-3. Open the existing Math Maze Adventures GitHub repository.
-4. Replace those two files in the **root of the `main` branch**; do not put them in a subfolder.
-5. Confirm **Settings → Pages → Deploy from a branch → `main` → `/(root)`** is enabled.
-6. Open the existing game URL, refresh with Ctrl+Shift+R, and verify both modes.
+Then in the repository choose **Settings → Pages → Deploy from a branch → main → /(root)**. Use the existing Pages address and existing Naches Learning Hub card. **Do not create a separate repository or replace the Learning Hub `index.html`.**
 
-There are no external libraries, fonts, APIs, accounts, or assets. The page runs from a single `index.html`. You **do not** need to update the main Learning Hub repository because the game URL stays unchanged.
+Because `index.html` is self-contained, there are no additional CSS, JavaScript, or image files to upload.
 
-## Quick teacher smoke test
+## Saving and privacy
 
-1. Open Classic Maze, try an answer, and switch Standard → Focus → High Contrast.
-2. Start Trailblazer Maze, choose a diagonal corridor when available, and verify the question appears **after** choosing the direction.
-3. Try a wrong answer: the token should retreat one room and the next direction should generate a fresh question.
-4. Try a correct typed answer (including fractions when a fraction question appears).
-5. Enable surprise rooms, trigger a bonus or trap, and dismiss its card.
-6. Refresh during an open Trailblazer question and confirm **Resume** restores it (on a normal hosted site, not an incognito/private session).
-7. Verify that a previously saved Classic profile still shows its records.
+Progress is stored using browser `localStorage` under the existing key `naches_math_maze_v1`. It is **device/browser/profile-specific**. It does not sync across Chromebooks and is lost if the student clears site data or uses an ephemeral/guest Chrome profile. Avoid clearing site storage during an unfinished game. Saved older Classic and Trailblazer sessions remain compatible. A completed badge and cosmetic unlock remain available in that nickname profile.
 
-## Status & validation
+## Testing and current limitations
 
-Development build: **Math Maze Adventures 2.0**, featuring a new *Trailblazer Maze* mode (the mode itself is intentionally not named "2.0"). In headless Chromium, testing covered 5 Classic route simulations, 27 complete Trailblazer runs across 4×4/5×5/6×6, 1,000+ allowed diagonals checked against wall rules, desktop/tablet/mobile layouts, typed and multiple-choice answers, wrong-answer setbacks, event cards, legacy Classic sessions, and simulated saving mid-question. Tests passed without JavaScript exceptions.
+Automated Chromium tests verified the initial three-mode popup, Classic exit visibility, Trailblazer question reveal, mobile viewport sizing, region path connectivity, question encounters, healing, all five boss badges, final boss completion, typed answers, cosmetic unlocking, separate mode-session restoration, and JSON serialization of an active Wildlands encounter. See `QA_RESULT.json` in the full package.
 
-Still recommended before a wide classroom rollout: live GitHub Pages save/resume, physical Chromebook/touchscreen interaction, and teacher review of grade-appropriate diagonal difficulty.
+**This is a playable development preview.** Physical Chromebook/touchscreen testing and actual GitHub Pages persistence after closing/reopening the browser have **not** been verified. Question pacing, level balance, and the RPG artwork may need adjustments based on student playtests.
 
-## Files
+## License / project context
 
-- `index.html`: Complete playable game and inline code/styles.
-- `README.md`: Repository documentation (this document).
-- In the optional complete package: preview screenshots, browser test scripts/results, deployment notes.
+An original educational game inspired by familiar exploration-RPG mechanics. It does not use Pokémon characters, designs, or music. This project has not been assigned an open-source license; do not assume third-party reuse rights.
